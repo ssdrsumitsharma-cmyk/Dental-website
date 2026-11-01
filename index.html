@@ -7,9 +7,12 @@
   <meta name="description" content="DentaClaire offers exceptional dental care including general dentistry and hygiene services. Led by Dr. Sumit Sharma, owner and general dentist, we provide a premium patient experience.">
   <meta name="keywords" content="dentist, dental clinic, dental hygienist, Dr. Sumit Sharma, DentaClaire, teeth cleaning, oral health">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+  <link rel="icon" type="image/png" href="images/dentaclaire-badge-rim.png">
 </head>
 <body>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
 
   <!-- ============================================ -->
   <!-- NAVIGATION                                   -->
@@ -17,17 +20,23 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="#" class="nav-logo">
-        <div class="nav-logo-icon">🦷</div>
-        <div class="nav-logo-text">Denta<span>Claire</span></div>
+        <div class="nav-logo-badge">
+          <img src="images/dentaclaire-badge-rim.png" alt="DentaClaire Emblem">
+        </div>
+        <div class="nav-logo-text-group">
+          <div class="nav-logo-text">DentaClaire</div>
+          <div class="nav-logo-subtext">Clarity &bull; Care &bull; Confidence</div>
+        </div>
       </a>
 
       <ul class="nav-links" id="navLinks">
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#clinic">Our Clinic</a></li>
         <li><a href="#team">Our Team</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#contact" class="btn btn-primary nav-cta">Book Now</a></li>
+        <li><button type="button" class="btn btn-primary nav-cta" id="navBookBtn" onclick="openBookingModal('General Consultation')">Book Now</button></li>
       </ul>
 
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -50,32 +59,65 @@
       <div class="hero-shape"></div>
       <div class="hero-shape"></div>
     </div>
+    <canvas id="hero-particles"></canvas>
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="dot"></span>
-          Now Accepting New Patients
-        </div>
-        <h1>
-          Your Smile Deserves<br>
-          <span class="highlight">Exceptional Care</span>
-        </h1>
-        <p>
-          At DentaClaire, we combine modern technology with a warm, personal touch to deliver dental care that goes beyond expectations — for every member of your family.
-        </p>
-        <div class="hero-btns">
-          <a href="#contact" class="btn btn-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Schedule a Visit
-          </a>
-          <a href="#services" class="btn btn-outline" style="border-color: hsla(0,0%,100%,0.3); color: #fff;">
-            Explore Services
-          </a>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="dot"></span>
+            Now Accepting New Patients &bull; Invisalign® Available
+          </div>
+          <div class="hero-tagline-script">Your Smile. Our Passion.</div>
+          <h1>
+            Your Smile Deserves<br>
+            <span class="highlight">Exceptional Care</span>
+          </h1>
+          <p>
+            At DentaClaire, we combine modern technology with a warm, personal touch to deliver dental care that goes beyond expectations — from comprehensive general dentistry and hygiene to restorative treatments and Invisalign® clear aligners.
+          </p>
+          <div class="hero-btns">
+            <button type="button" class="btn btn-primary" onclick="openBookingModal('New Patient Visit')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Schedule a Visit
+            </button>
+            <a href="#services" class="btn btn-outline" style="border-color: rgba(232, 207, 150, 0.4); color: var(--clr-text-on-dark);">
+              Explore Services
+            </a>
+          </div>
         </div>
 
+        <div class="hero-brand-feature reveal">
+          <div class="hero-brand-card">
+            <div class="hero-brand-image-frame">
+              <img src="images/dentaclaire-full-logo.jpg" alt="DentaClaire Full Logo — Clarity, Care, Confidence">
+            </div>
+            <div class="hero-brand-details">
+              <div class="hero-brand-badge-pill">
+                <span class="gold-diamond">♦</span>
+                <span>Clarity &bull; Care &bull; Confidence</span>
+              </div>
+              <div class="hero-brand-quote">Your Smile. Our Passion.</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ============================================ -->
+  <!-- BRAND STATEMENT BAR                          -->
+  <!-- ============================================ -->
+  <div class="brand-statement-bar">
+    <div class="container">
+      <div class="statement-content">
+        <span class="gold-diamond">♦</span>
+        <span class="statement-motto">Clarity &bull; Care &bull; Confidence &bull; Invisalign® Provider</span>
+        <span class="gold-diamond">♦</span>
+        <span class="statement-tagline">"Your Smile. Our Passion."</span>
+        <span class="gold-diamond">♦</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ============================================ -->
   <!-- SERVICES                                     -->
@@ -85,6 +127,7 @@
       <div class="services-header reveal">
         <p class="section-eyebrow">What We Offer</p>
         <h2 class="section-title">Comprehensive Dental Services</h2>
+        <div class="gold-divider"><span>♦</span></div>
         <p class="section-subtitle">
           From routine cleanings to advanced restorations, our team provides the full spectrum of dental care under one roof.
         </p>
@@ -95,36 +138,55 @@
           <div class="service-icon">🩺</div>
           <h3>General Dentistry</h3>
           <p>Comprehensive exams, digital X-rays, fillings, and preventive treatments to keep your smile healthy and strong.</p>
+          <div class="service-card-footer">
+            <button type="button" class="service-learn-more" onclick="openBookingModal('General Dentistry')">Book Consultation &rarr;</button>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon">✨</div>
           <h3>Dental Hygiene</h3>
           <p>Professional cleanings, scaling, polishing, and personalised oral hygiene education from our dedicated hygienist.</p>
+          <div class="service-card-footer">
+            <button type="button" class="service-learn-more" onclick="openBookingModal('Dental Hygiene & Cleaning')">Book Cleaning &rarr;</button>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">💎</div>
+          <span class="service-badge-gold">Popular</span>
+          <h3>Invisalign® Clear Aligners</h3>
+          <p>Straighten your smile discreetly and comfortably with custom, virtually invisible Invisalign® aligners — without metal brackets or wires.</p>
+          <div class="service-card-footer">
+            <button type="button" class="service-learn-more" onclick="openBookingModal('Invisalign® Consultation')">Invisalign Scan &rarr;</button>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon">😁</div>
           <h3>Cosmetic Dentistry</h3>
-          <p>Teeth whitening, veneers, and smile makeovers designed to enhance your confidence and natural beauty.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-icon">🛡️</div>
-          <h3>Preventive Care</h3>
-          <p>Fluoride treatments, sealants, and gum disease management to protect your oral health for the long term.</p>
+          <p>Teeth whitening, porcelain veneers, and personalized smile makeovers designed to enhance your natural beauty and confidence.</p>
+          <div class="service-card-footer">
+            <button type="button" class="service-learn-more" onclick="openBookingModal('Cosmetic Dentistry')">Smile Makeover &rarr;</button>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon">🦷</div>
-          <h3>Restorative Care</h3>
-          <p>Crowns, bridges, dentures, and implant-supported solutions to restore function and aesthetics to your smile.</p>
+          <h3>Restorative Dentistry</h3>
+          <p>Crowns, bridges, tooth restorations, and modern solutions to protect, restore, and maintain your healthy, natural smile.</p>
+          <div class="service-card-footer">
+            <button type="button" class="service-learn-more" onclick="openBookingModal('Restorative Dentistry')">Consult Treatment &rarr;</button>
+          </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon">👶</div>
-          <h3>Family Dentistry</h3>
-          <p>Gentle, compassionate care for patients of all ages — from your child's first visit to senior dental health.</p>
+          <h3>Preventive &amp; Family Care</h3>
+          <p>Gentle checkups, sealants, fluoride protection, and compassionate dental care for patients of all ages — from toddlers to seniors.</p>
+          <div class="service-card-footer">
+            <button type="button" class="service-learn-more" onclick="openBookingModal('Family Dental Care')">Schedule Visit &rarr;</button>
+          </div>
         </div>
 
       </div>
@@ -148,13 +210,16 @@
             General Dentist &amp; Clinic Owner
           </p>
           <p class="section-subtitle" style="margin-top: var(--space-sm);">
-            Dr. Sumit Sharma is an experienced and compassionate dentist with an extensive clinical background spanning both India and Canada. He practiced dentistry in India from 2008 to 2019, gaining broad experience across various aspects of dental care. After moving to Canada, he successfully completed the Canadian dental equivalency process in 2023 and has since been practicing dentistry in Vancouver.
+            Dr. Sumit Sharma is an experienced and compassionate dentist with an extensive clinical background spanning both India and Canada. He practiced dentistry in India from 2008 to 2019, gaining broad experience across various aspects of dental care. After moving to Canada, he successfully completed the Canadian dental equivalency process in 2023 and has since been practicing dentistry in Vancouver, Canada.
           </p>
           <p class="section-subtitle" style="margin-top: var(--space-sm);">
-            Beyond clinical practice, Dr. Sharma has served as a Clinical Instructor at the University of British Columbia (UBC), providing clinical guidance to dental students. He is also passionate about mentorship and has supported internationally trained dentists preparing for board and qualifying examinations across Canada and the United States.
+            Beyond clinical practice, Dr. Sharma has served as a Clinical Instructor at the University of British Columbia (UBC), providing clinical guidance to dental students. Having personally navigated the dental equivalency pathway, he is also passionate about mentorship and has supported internationally trained and aspiring dentists preparing for dental board and qualifying examinations across Canada and the United States.
           </p>
           <p class="section-subtitle" style="margin-top: var(--space-sm);">
-            Dr. Sharma believes that exceptional dentistry goes beyond treating teeth — it is about building trust, understanding each patient's individual needs, and creating a comfortable and positive experience. His approach combines extensive clinical experience with personalised attention, clear communication, and a genuine commitment to helping patients feel confident about their oral health and their smiles.
+            Dr. Sharma believes that exceptional dentistry goes beyond treating teeth—it is about building trust, understanding each patient’s individual needs, and creating a comfortable and positive experience. His approach combines extensive clinical experience with personalized attention, clear communication, and a genuine commitment to helping patients feel confident about their oral health and their smiles.
+          </p>
+          <p class="section-subtitle" style="margin-top: var(--space-sm);">
+            Outside of dentistry, Dr. Sharma enjoys exploring the outdoors and spending quality time with his family and children. He also values giving back to the community and has participated in community service initiatives, using his dental knowledge and experience to help those in need.
           </p>
           <div class="about-highlights">
             <div class="about-highlight">
@@ -192,6 +257,49 @@
   </section>
 
   <!-- ============================================ -->
+  <!-- BRAND SHOWCASE — FULL LOGO & PHILOSOPHY     -->
+  <!-- ============================================ -->
+  <section class="brand-showcase-section" id="clinic">
+    <div class="container">
+      <div class="brand-showcase-card reveal">
+        <div class="brand-showcase-media">
+          <img src="images/dentaclaire-full-logo.jpg" alt="DentaClaire Dental Clinic Full Logo — Clarity, Care, Confidence">
+        </div>
+        <div class="brand-showcase-text">
+          <p class="section-eyebrow">Our Clinic Identity</p>
+          <h2 class="section-title">Rooted in Care. Designed for Comfort.</h2>
+          <p>
+            At DentaClaire, our emblem embodies the fusion of modern clinical excellence and warm, compassionate care. Built upon our three core pillars of <strong>Clarity, Care, and Confidence</strong>, we are committed to making every visit reassuring, comfortable, and positive.
+          </p>
+          <div class="brand-pillars">
+            <div class="brand-pillar">
+              <span class="pillar-glyph">♦</span>
+              <div>
+                <strong>Clarity</strong>
+                <span>Transparent consultations, honest advice, and clear treatment plans.</span>
+              </div>
+            </div>
+            <div class="brand-pillar">
+              <span class="pillar-glyph">♦</span>
+              <div>
+                <strong>Care</strong>
+                <span>Gentle, personalized attention tailored to your comfort at every step.</span>
+              </div>
+            </div>
+            <div class="brand-pillar">
+              <span class="pillar-glyph">♦</span>
+              <div>
+                <strong>Confidence</strong>
+                <span>Empowering you with a healthy, radiant smile you love to share.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
   <!-- TEAM                                         -->
   <!-- ============================================ -->
   <section class="team" id="team">
@@ -199,6 +307,7 @@
       <div class="team-header reveal">
         <p class="section-eyebrow">Our Team</p>
         <h2 class="section-title">People Who Care About Your Smile</h2>
+        <div class="gold-divider"><span>♦</span></div>
         <p class="section-subtitle">
           A small, dedicated team that treats every patient like family.
         </p>
@@ -219,9 +328,32 @@
         </div>
 
         <div class="team-card reveal">
-          <div class="team-card-image">
-            <img src="images/hygienist.jpg" alt="Dental Hygienist at DentaClaire">
-            <div class="team-card-overlay"></div>
+          <div class="team-card-image team-card-placeholder">
+            <div class="team-placeholder-inner">
+              <div class="team-placeholder-icon">
+                <img src="images/dentaclaire-badge-rim.png" alt="Dr. Richa Sharma — General Dentist">
+              </div>
+              <span class="team-placeholder-text">Dr. Richa Sharma</span>
+              <span class="team-placeholder-sub">General Dental Practitioner</span>
+            </div>
+            <span class="team-card-badge">General Dentist</span>
+          </div>
+          <div class="team-card-body">
+            <h3>Dr. Richa Sharma</h3>
+            <p class="team-card-role">General Dentist</p>
+            <p>Dr. Richa Sharma provides comprehensive general dental care with a gentle touch, dedicated to preventive health, restorative treatments, and patient comfort for smiles of all ages.</p>
+          </div>
+        </div>
+
+        <div class="team-card reveal">
+          <div class="team-card-image team-card-placeholder">
+            <div class="team-placeholder-inner">
+              <div class="team-placeholder-icon">
+                <img src="images/dentaclaire-badge-rim.png" alt="DentaClaire Dental Hygienist">
+              </div>
+              <span class="team-placeholder-text">Registered Dental Hygienist</span>
+              <span class="team-placeholder-sub">Preventive Oral Care Specialist</span>
+            </div>
             <span class="team-card-badge">Hygienist</span>
           </div>
           <div class="team-card-body">
@@ -236,61 +368,69 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- TESTIMONIALS                                 -->
+  <!-- FREQUENTLY ASKED QUESTIONS (FAQ)             -->
   <!-- ============================================ -->
-  <section class="testimonials" id="testimonials">
+  <section class="faq-section" id="faq">
     <div class="container">
-      <div class="testimonials-header reveal">
-        <p class="section-eyebrow">What Patients Say</p>
-        <h2 class="section-title">Trusted by Our Community</h2>
+      <div class="faq-header reveal">
+        <p class="section-eyebrow">Helpful Information</p>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="gold-divider"><span>♦</span></div>
         <p class="section-subtitle">
-          Real stories from real patients who love their DentaClaire experience.
+          Have questions about your care, treatment options, or your first visit? Here are answers to common questions we receive from patients.
         </p>
       </div>
-      <div class="testimonials-grid">
 
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
-          <blockquote>
-            "Dr. Sharma made me feel completely at ease. I'd been nervous about seeing a dentist for years, but DentaClaire changed everything. The clinic is beautiful and the care is outstanding."
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">R</div>
-            <div class="testimonial-author-info">
-              <h4>Rachael M.</h4>
-              <p>Patient for 2 years</p>
-            </div>
+      <div class="faq-list reveal">
+        <div class="faq-item active">
+          <button class="faq-question" type="button" aria-expanded="true">
+            <span>Are you currently accepting new patients?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, warmly! Dr. Sumit Sharma and the DentaClaire team are actively welcoming new patients and families from Vancouver and surrounding communities. Whether you need a routine check-up, comprehensive cleaning, or second opinion, we look forward to meeting you.</p>
           </div>
         </div>
 
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
-          <blockquote>
-            "The hygienist is incredibly thorough and genuinely cares about your oral health. I always leave with my teeth feeling amazing. Best dental practice I've been to."
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">J</div>
-            <div class="testimonial-author-info">
-              <h4>James T.</h4>
-              <p>Patient for 1 year</p>
-            </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>How does Invisalign® work and am I a good candidate?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Invisalign® uses a series of custom-crafted, clear, removable aligners to gently guide your teeth into optimal alignment without metal brackets or wires. During an initial consultation, Dr. Sharma will conduct an oral assessment and digital scan to determine if Invisalign® is the best fit for your smile goals.</p>
           </div>
         </div>
 
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
-          <blockquote>
-            "My whole family comes here — from my 5-year-old to my parents. Everyone receives gentle, personal attention. Dr. Sharma truly takes the time to listen and explain everything."
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">S</div>
-            <div class="testimonial-author-info">
-              <h4>Sarah L.</h4>
-              <p>Patient for 3 years</p>
-            </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>What should I expect during my first visit?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Your first appointment includes a comprehensive oral exam, low-radiation digital imaging if needed, gum health assessment, and an unhurried consultation with Dr. Sharma to understand your oral health history, lifestyle, and dental preferences.</p>
           </div>
         </div>
 
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Do you accept dental insurance and direct billing?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, we accept most Canadian dental insurance plans and provide direct insurance billing (assignment of benefits) whenever supported by your provider, minimizing your out-of-pocket expenses and simplifying the reimbursement process.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>What if I feel anxious or nervous about dental procedures?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Patient comfort is at the heart of DentaClaire. Dr. Sharma is renowned for his gentle, reassuring manner. We explain every step beforehand, offer cozy blankets and music, proceed at your pace, and provide modern gentle anesthesia techniques to ensure you feel completely at ease.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -301,9 +441,10 @@
   <section class="cta-section">
     <div class="container">
       <div class="cta-banner reveal">
+        <span class="cta-script">Your Smile. Our Passion.</span>
         <h2>Ready for a Brighter Smile?</h2>
         <p>Book your appointment today and experience the DentaClaire difference. New patients always welcome.</p>
-        <a href="#contact" class="btn btn-white">
+        <a href="tel:+12368899281" class="btn btn-white">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           Call Us Now
         </a>
@@ -319,6 +460,7 @@
       <div class="contact-header reveal">
         <p class="section-eyebrow">Get in Touch</p>
         <h2 class="section-title">Visit DentaClaire</h2>
+        <div class="gold-divider"><span>♦</span></div>
         <p class="section-subtitle">
           We'd love to welcome you to our clinic. Reach out or drop by during our opening hours.
         </p>
@@ -333,8 +475,11 @@
 
         <div class="contact-card reveal">
           <div class="contact-card-icon">📞</div>
-          <h3>Phone & Email</h3>
-          <p>Phone: (555) 123-4567<br>Email: hello@dentaclaire.com</p>
+          <h3>Phone &amp; Email</h3>
+          <p>
+            Phone: <a href="tel:+12368899281">(236) 889-9281</a><br>
+            Email: <a href="mailto:ssdr.sumitsharma@gmail.com">ssdr.sumitsharma@gmail.com</a>
+          </p>
         </div>
 
         <div class="contact-card reveal">
@@ -358,16 +503,27 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="nav-logo-text" style="font-size: 1.6rem; margin-bottom: 1rem;">Denta<span>Claire</span></div>
+          <a href="#" class="nav-logo" style="margin-bottom: 1.2rem;">
+            <div class="nav-logo-badge">
+              <img src="images/dentaclaire-badge-rim.png" alt="DentaClaire Emblem">
+            </div>
+            <div class="nav-logo-text-group">
+              <div class="nav-logo-text" style="color: var(--clr-text-on-dark);">DentaClaire</div>
+              <div class="nav-logo-subtext">Clarity &bull; Care &bull; Confidence</div>
+            </div>
+          </a>
           <p>Modern dental care with a personal touch. Led by Dr. Sumit Sharma, DentaClaire is committed to creating healthy, confident smiles for the entire community.</p>
+          <p class="footer-tagline">Your Smile. Our Passion.</p>
         </div>
         <div>
           <h4>Quick Links</h4>
           <ul class="footer-links">
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About Dr. Sharma</a></li>
+            <li><a href="#clinic">Our Clinic &amp; Identity</a></li>
             <li><a href="#team">Our Team</a></li>
-            <li><a href="#testimonials">Patient Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -375,15 +531,16 @@
           <ul class="footer-links">
             <li><a href="#services">General Dentistry</a></li>
             <li><a href="#services">Dental Hygiene</a></li>
+            <li><a href="#services">Invisalign® Aligners</a></li>
+            <li><a href="#services">Restorative Dentistry</a></li>
             <li><a href="#services">Cosmetic Dentistry</a></li>
-            <li><a href="#services">Preventive Care</a></li>
           </ul>
         </div>
         <div>
           <h4>Contact</h4>
           <ul class="footer-links">
-            <li><a href="tel:+15551234567">(555) 123-4567</a></li>
-            <li><a href="mailto:hello@dentaclaire.com">hello@dentaclaire.com</a></li>
+            <li><a href="tel:+12368899281">(236) 889-9281</a></li>
+            <li><a href="mailto:ssdr.sumitsharma@gmail.com">ssdr.sumitsharma@gmail.com</a></li>
             <li><a href="#contact">Opening Hours</a></li>
           </ul>
         </div>
@@ -400,16 +557,114 @@
   </footer>
 
   <!-- ============================================ -->
-  <!-- JAVASCRIPT                                   -->
+  <!-- LUXURY APPOINTMENT MODAL                     -->
+  <!-- ============================================ -->
+  <div class="modal-backdrop" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle">Request an Appointment</h3>
+        <p>DentaClaire Dental Clinic &bull; Dr. Sumit Sharma</p>
+        <button class="modal-close-btn" type="button" aria-label="Close modal" onclick="closeBookingModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+          <div class="form-group">
+            <label for="patientName">Your Full Name</label>
+            <input type="text" id="patientName" class="form-control" placeholder="e.g. Sarah Jenkins" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="patientPhone">Phone Number</label>
+              <input type="tel" id="patientPhone" class="form-control" placeholder="(236) 000-0000" required>
+            </div>
+            <div class="form-group">
+              <label for="patientEmail">Email Address</label>
+              <input type="email" id="patientEmail" class="form-control" placeholder="name@example.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="serviceType">Service Requested</label>
+              <select id="serviceType" class="form-control">
+                <option value="General Consultation">General Consultation &amp; Exam</option>
+                <option value="Invisalign® Consultation">Invisalign® Clear Aligners Scan</option>
+                <option value="Dental Hygiene & Cleaning">Dental Hygiene &amp; Cleaning</option>
+                <option value="Cosmetic Dentistry">Cosmetic Smile Makeover</option>
+                <option value="Restorative Dentistry">Restorative Care (Crown/Bridge/Filling)</option>
+                <option value="Family Dental Care">Family &amp; Pediatric Care</option>
+                <option value="Dental Emergency">Urgent / Emergency Care</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="preferredTime">Preferred Time</label>
+              <select id="preferredTime" class="form-control">
+                <option value="Morning (9:00 AM – 12:00 PM)">Morning (9:00 AM – 12:00 PM)</option>
+                <option value="Afternoon (12:00 PM – 3:00 PM)">Afternoon (12:00 PM – 3:00 PM)</option>
+                <option value="Late Afternoon (3:00 PM – 6:00 PM)">Late Afternoon (3:00 PM – 6:00 PM)</option>
+                <option value="Saturday Morning">Saturday Morning</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="patientNotes">Notes / Special Requests (Optional)</label>
+            <textarea id="patientNotes" class="form-control" rows="2" placeholder="Let us know any questions, previous records, or comfort preferences..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.95rem; font-size: 0.98rem;">
+            Confirm Appointment Request
+          </button>
+          <div class="modal-direct-call">
+            Prefer to speak directly? Call Dr. Sharma's clinic at <a href="tel:+12368899281">(236) 889-9281</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- FLOATING QUICK-ACTION HUB                    -->
+  <!-- ============================================ -->
+  <div class="floating-hub">
+    <button class="back-to-top" id="backToTopBtn" type="button" aria-label="Back to top" onclick="scrollToTop()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+    <a href="tel:+12368899281" class="quick-call-pill" title="Call DentaClaire Clinic">
+      <span class="pulse-dot"></span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="pill-text">(236) 889-9281</span>
+    </a>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- JAVASCRIPT & DYNAMIC INTERACTIONS            -->
   <!-- ============================================ -->
   <script>
-    // --- Navbar scroll effect ---
+    // --- 1. Scroll Progress Bar & Navbar Scroll Effect ---
     const navbar = document.getElementById('navbar');
+    const scrollProgressBar = document.getElementById('scrollProgressBar');
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
     window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+
+      if (scrollProgressBar) {
+        scrollProgressBar.style.width = `${scrollPercent}%`;
+      }
+
+      navbar.classList.toggle('scrolled', scrollY > 60);
+
+      if (backToTopBtn) {
+        backToTopBtn.classList.toggle('visible', scrollY > 400);
+      }
     });
 
-    // --- Mobile nav toggle ---
+    // --- 2. Back to Top Smooth Scroll ---
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // --- 3. Mobile Nav Toggle ---
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
 
@@ -417,71 +672,370 @@
       navLinks.classList.toggle('active');
     });
 
-    // Close mobile nav when a link is clicked
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
       });
     });
 
-    // --- Scroll reveal animations ---
+    // --- 4. Active Nav Scroll Spy ---
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchorLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    window.addEventListener('scroll', () => {
+      let currentSection = '';
+      const scrollPos = window.scrollY + 200;
+
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      navAnchorLinks.forEach(link => {
+        link.classList.remove('active-link');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+          link.classList.add('active-link');
+        }
+      });
+    });
+
+    // --- 5. Scroll Reveal Observer ---
     const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry, i) => {
           if (entry.isIntersecting) {
-            // Stagger animation
             setTimeout(() => {
               entry.target.classList.add('visible');
-            }, i * 100);
+            }, i * 90);
             revealObserver.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
-
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // --- Smooth scroll for anchor links ---
+    // --- 6. Smooth Scroll for Anchor Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         }
       });
     });
 
-    // --- Counter animation for hero stats ---
-    function animateCounter(element, target, suffix = '') {
-      let current = 0;
-      const increment = target / 60;
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          current = target;
-          clearInterval(timer);
+    // --- 7. Interactive 3D Perspective Card Tilt & Spotlight ---
+    const tiltCards = document.querySelectorAll('.service-card, .team-card, .hero-brand-card, .contact-card');
+
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Set spotlight coordinates
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+
+        // Compute 3D tilt
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -5.5;
+        const rotateY = ((x - centerX) / centerX) * 5.5;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      });
+    });
+
+    // --- 8. Ambient Particle Canvas in Hero ---
+    const canvas = document.getElementById('hero-particles');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let width, height;
+      let mousePos = { x: -1000, y: -1000 };
+
+      function resizeCanvas() {
+        width = canvas.width = canvas.parentElement.offsetWidth;
+        height = canvas.height = canvas.parentElement.offsetHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      canvas.parentElement.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mousePos.x = e.clientX - rect.left;
+        mousePos.y = e.clientY - rect.top;
+      });
+
+      canvas.parentElement.addEventListener('mouseleave', () => {
+        mousePos.x = -1000;
+        mousePos.y = -1000;
+      });
+
+      const particleCount = 38;
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 2.2 + 0.8,
+          alpha: Math.random() * 0.45 + 0.15,
+          speedX: (Math.random() - 0.5) * 0.45,
+          speedY: -(Math.random() * 0.4 + 0.15),
+          pulse: Math.random() * Math.PI * 2
+        });
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.speedX;
+          p.y += p.speedY;
+          p.pulse += 0.02;
+
+          // Wrap boundaries
+          if (p.y < -10) { p.y = height + 10; p.x = Math.random() * width; }
+          if (p.x < -10) p.x = width + 10;
+          if (p.x > width + 10) p.x = -10;
+
+          // Subtle mouse attraction
+          const dx = mousePos.x - p.x;
+          const dy = mousePos.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 140) {
+            p.x += (dx / dist) * 0.8;
+            p.y += (dy / dist) * 0.8;
+          }
+
+          const currentAlpha = p.alpha + Math.sin(p.pulse) * 0.12;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(221, 190, 127, ${Math.max(0.08, currentAlpha)})`;
+          ctx.shadowColor = 'rgba(221, 190, 127, 0.45)';
+          ctx.shadowBlur = p.radius * 3;
+          ctx.fill();
         }
-        element.textContent = Math.floor(current) + suffix;
-      }, 16);
+
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
     }
 
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const stats = entry.target.querySelectorAll('.hero-stat-number');
-          animateCounter(stats[0], 3, '+');
-          animateCounter(stats[1], 2, 'k+');
-          animateCounter(stats[2], 98, '%');
-          statsObserver.unobserve(entry.target);
+    // --- 9. Interactive FAQ Accordion ---
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const questionBtn = item.querySelector('.faq-question');
+      questionBtn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // Close other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Toggle current item
+        if (isActive) {
+          item.classList.remove('active');
+          questionBtn.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('active');
+          questionBtn.setAttribute('aria-expanded', 'true');
         }
       });
-    }, { threshold: 0.5 });
+    });
 
-    const heroStats = document.querySelector('.hero-stats');
-    if (heroStats) statsObserver.observe(heroStats);
+    // --- 10. Luxury Appointment Booking Modal ---
+    const bookingModal = document.getElementById('bookingModal');
+    const serviceTypeSelect = document.getElementById('serviceType');
+    const modalBody = document.getElementById('modalBody');
+
+    function openBookingModal(preselectedService) {
+      if (preselectedService && serviceTypeSelect) {
+        let matched = false;
+        for (let option of serviceTypeSelect.options) {
+          if (option.value.toLowerCase().includes(preselectedService.toLowerCase()) ||
+              preselectedService.toLowerCase().includes(option.value.toLowerCase())) {
+            option.selected = true;
+            matched = true;
+            break;
+          }
+        }
+        if (!matched && serviceTypeSelect.options.length > 0) {
+          serviceTypeSelect.options[0].selected = true;
+        }
+      }
+      if (bookingModal) {
+        bookingModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeBookingModal() {
+      if (bookingModal) {
+        bookingModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close on backdrop click
+    if (bookingModal) {
+      bookingModal.addEventListener('click', (e) => {
+        if (e.target === bookingModal) {
+          closeBookingModal();
+        }
+      });
+    }
+
+    // Close on ESC key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && bookingModal && bookingModal.classList.contains('open')) {
+        closeBookingModal();
+      }
+    });
+
+    // --- 11. Gold Cursor Trail ---
+    (function () {
+      const trailCanvas = document.createElement('canvas');
+      trailCanvas.id = 'cursor-trail-canvas';
+      Object.assign(trailCanvas.style, {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        width: '100%',
+        height: '100%',
+        pointerEvents: 'none',
+        zIndex: '99999',
+      });
+      document.body.appendChild(trailCanvas);
+
+      const tCtx = trailCanvas.getContext('2d');
+      let tW = trailCanvas.width = window.innerWidth;
+      let tH = trailCanvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        tW = trailCanvas.width = window.innerWidth;
+        tH = trailCanvas.height = window.innerHeight;
+      });
+
+      // Gold colour stops matching the site palette
+      const GOLD_COLORS = [
+        'rgba(236, 213, 158,',  // --clr-primary-bright
+        'rgba(221, 190, 127,',  // --clr-primary-light
+        'rgba(197, 160, 89,',   // --clr-primary
+        'rgba(232, 205, 148,',  // mid-range warm gold
+        'rgba(255, 235, 180,',  // bright highlight
+      ];
+
+      const trailParticles = [];
+
+      window.addEventListener('mousemove', (e) => {
+        // Spawn 3–5 sparkles per move event for a lush trail
+        const count = Math.floor(Math.random() * 3) + 3;
+        for (let i = 0; i < count; i++) {
+          const spread = 6;
+          trailParticles.push({
+            x: e.clientX + (Math.random() - 0.5) * spread,
+            y: e.clientY + (Math.random() - 0.5) * spread,
+            radius: Math.random() * 3.5 + 1.2,
+            alpha: Math.random() * 0.55 + 0.55,
+            color: GOLD_COLORS[Math.floor(Math.random() * GOLD_COLORS.length)],
+            vx: (Math.random() - 0.5) * 1.2,
+            vy: (Math.random() - 0.5) * 1.2 - 0.6,   // slight upward drift
+            life: 1,
+            decay: Math.random() * 0.022 + 0.018,      // fade speed (~800ms avg)
+          });
+        }
+      });
+
+      function drawTrail() {
+        tCtx.clearRect(0, 0, tW, tH);
+
+        for (let i = trailParticles.length - 1; i >= 0; i--) {
+          const p = trailParticles[i];
+          p.life -= p.decay;
+          if (p.life <= 0) {
+            trailParticles.splice(i, 1);
+            continue;
+          }
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.025; // gentle gravity pull
+
+          const currentAlpha = p.alpha * p.life;
+          const currentRadius = p.radius * p.life;
+
+          // Outer glow
+          const grd = tCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, currentRadius * 2.8);
+          grd.addColorStop(0, `${p.color}${currentAlpha.toFixed(3)})`);
+          grd.addColorStop(1, `${p.color}0)`);
+          tCtx.beginPath();
+          tCtx.arc(p.x, p.y, currentRadius * 2.8, 0, Math.PI * 2);
+          tCtx.fillStyle = grd;
+          tCtx.fill();
+
+          // Bright core
+          tCtx.beginPath();
+          tCtx.arc(p.x, p.y, currentRadius, 0, Math.PI * 2);
+          tCtx.fillStyle = `${p.color}${Math.min(1, currentAlpha * 1.4).toFixed(3)})`;
+          tCtx.fill();
+        }
+
+        requestAnimationFrame(drawTrail);
+      }
+      drawTrail();
+    })();
+
+    // Form submission handler
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const patientName = document.getElementById('patientName').value;
+      const serviceChosen = serviceTypeSelect.value;
+
+      modalBody.innerHTML = `
+        <div class="modal-success-state">
+          <div class="modal-success-icon">✓</div>
+          <h4 style="font-family: var(--ff-heading); font-size: 1.5rem; color: var(--clr-text); margin-bottom: 0.5rem;">
+            Request Received, ${patientName}!
+          </h4>
+          <p style="color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">
+            Thank you for reaching out to DentaClaire. Our team has reserved your preference for <strong>${serviceChosen}</strong> and will contact you promptly to finalize your booking time.
+          </p>
+          <div style="background: var(--clr-surface-alt); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--clr-border-light); font-size: 0.88rem; color: var(--clr-text);">
+            Need immediate assistance? Call us directly: <a href="tel:+12368899281" style="color: var(--clr-primary-dark); font-weight: 700;">(236) 889-9281</a>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="closeBookingModal()" style="margin-top: 1.5rem; width: 100%; justify-content: center;">
+            Done
+          </button>
+        </div>
+      `;
+
+      setTimeout(() => {
+        closeBookingModal();
+        // Reset modal body content after close
+        setTimeout(() => {
+          location.reload;
+        }, 500);
+      }, 7000);
+    }
   </script>
 
 </body>
