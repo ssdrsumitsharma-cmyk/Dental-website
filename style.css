@@ -17,7 +17,7 @@
   --clr-primary-deep: #6E531D;
   --clr-primary-glow: rgba(197, 160, 89, 0.25);
   --clr-gold-border: rgba(197, 160, 89, 0.4);
-  
+
   /* Gold Gradients */
   --clr-gold-gradient: linear-gradient(135deg, #B58F45 0%, #DDBE7F 45%, #ECD59E 65%, #9E7B35 100%);
   --clr-gold-gradient-hover: linear-gradient(135deg, #C5A055 0%, #E8CD94 45%, #F7E5B8 65%, #B8934A 100%);
@@ -25,18 +25,24 @@
   --clr-gold-text-gradient: linear-gradient(135deg, #ECD59E 0%, #DDBE7F 50%, #C5A059 100%);
 
   /* Neutrals: Warm Matte Cream / Travertine / Soft Linen (No Harsh Glaring White) */
-  --clr-bg: #E9DFCF;              /* Warm muted travertine — zero glare */
-  --clr-surface: #F0E8DA;         /* Soft matte parchment for cards — calm, easy on the eyes */
-  --clr-surface-alt: #E2D6C4;     /* Warm linen sub-surface */
+  --clr-bg: #E9DFCF;
+  /* Warm muted travertine — zero glare */
+  --clr-surface: #F0E8DA;
+  /* Soft matte parchment for cards — calm, easy on the eyes */
+  --clr-surface-alt: #E2D6C4;
+  /* Warm linen sub-surface */
   --clr-surface-subtle: #E6DACA;
-  --clr-border: #D3C3AD;          /* Warm earthy stone border */
+  --clr-border: #D3C3AD;
+  /* Warm earthy stone border */
   --clr-border-light: #DDD0BC;
 
   /* Typography Colors */
-  --clr-text: #18222C;            /* Deep slate navy from logo */
+  --clr-text: #18222C;
+  /* Deep slate navy from logo */
   --clr-text-muted: #505F70;
   --clr-text-light: #7A8999;
-  --clr-text-on-dark: #EDE5D8;     /* Soft warm parchment — not glaring white */
+  --clr-text-on-dark: #EDE5D8;
+  /* Soft warm parchment — not glaring white */
   --clr-text-on-dark-muted: rgba(237, 229, 216, 0.82);
 
   /* Deep Luxury Slate Navy (from logo lettering) */
@@ -188,6 +194,7 @@ ul {
   font-family: var(--ff-body);
   font-size: 0.92rem;
   font-weight: 600;
+
   letter-spacing: 0.5px;
   cursor: pointer;
   transition: all var(--duration) var(--ease);
@@ -445,12 +452,10 @@ ul {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(13, 20, 28, 0.94) 0%,
-    rgba(19, 28, 39, 0.85) 50%,
-    rgba(13, 20, 28, 0.92) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(13, 20, 28, 0.94) 0%,
+      rgba(19, 28, 39, 0.85) 50%,
+      rgba(13, 20, 28, 0.92) 100%);
 }
 
 .hero .container {
@@ -563,13 +568,23 @@ ul {
   height: 8px;
   border-radius: var(--radius-full);
   background: var(--clr-primary-bright);
+
   box-shadow: 0 0 8px var(--clr-primary-light);
   animation: pulse-dot 2s infinite;
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.45; transform: scale(0.85); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
+  }
 }
 
 .hero-tagline-script {
@@ -622,6 +637,7 @@ ul {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -670,8 +686,15 @@ ul {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-30px) scale(1.05); }
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
 }
 
 /* --- BRAND STATEMENT RIBBON --- */
@@ -1218,7 +1241,7 @@ ul {
   background: rgba(245, 239, 230, 0.06);
 }
 
-.cta-banner > * {
+.cta-banner>* {
   position: relative;
   z-index: 2;
 }
@@ -1442,23 +1465,28 @@ ul {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
   }
+
   .hero-brand-feature {
     max-width: 580px;
     margin-inline: auto;
     width: 100%;
   }
+
   .brand-showcase-card {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
+
   .about-image-wrapper {
     max-width: 450px;
     margin-inline: auto;
   }
+
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-lg);
@@ -1614,11 +1642,9 @@ ul {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(
-    500px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
-    rgba(221, 190, 127, 0.16),
-    transparent 55%
-  );
+  background: radial-gradient(500px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+      rgba(221, 190, 127, 0.16),
+      transparent 55%);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s var(--ease);
@@ -1676,12 +1702,10 @@ ul {
   left: -90%;
   width: 50%;
   height: 220%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.32) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.32) 50%,
+      transparent 100%);
   transform: rotate(25deg);
   transition: transform 0.8s ease;
   pointer-events: none;
@@ -2045,9 +2069,11 @@ ul {
     bottom: 1.25rem;
     right: 1.25rem;
   }
+
   .quick-call-pill span.pill-text {
     display: none;
   }
+
   .quick-call-pill {
     padding: 0.75rem;
     border-radius: 50%;
