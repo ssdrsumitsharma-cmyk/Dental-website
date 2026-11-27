@@ -444,10 +444,10 @@
         <span class="cta-script">Your Smile. Our Passion.</span>
         <h2>Ready for a Brighter Smile?</h2>
         <p>Book your appointment today and experience the DentaClaire difference. New patients always welcome.</p>
-        <a href="tel:+12368899281" class="btn btn-white">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call Us Now
-        </a>
+        <button type="button" class="btn btn-white" onclick="openBookingModal('General Consultation')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book Your Appointment
+        </button>
       </div>
     </div>
   </section>
@@ -474,11 +474,11 @@
         </div>
 
         <div class="contact-card reveal">
-          <div class="contact-card-icon">📞</div>
-          <h3>Phone &amp; Email</h3>
+          <div class="contact-card-icon">🗓️</div>
+          <h3>Appointments</h3>
           <p>
-            Phone: <a href="tel:+12368899281">(236) 889-9281</a><br>
-            Email: <a href="mailto:ssdr.sumitsharma@gmail.com">ssdr.sumitsharma@gmail.com</a>
+            Schedule your consultation or checkup directly with Dr. Sharma.<br>
+            <button type="button" class="service-learn-more" style="margin-top: 0.5rem; display: inline-block; background: none; border: none; cursor: pointer; color: var(--clr-primary-dark); font-weight: 600;" onclick="openBookingModal('General Consultation')">Book Online &rarr;</button>
           </p>
         </div>
 
@@ -537,11 +537,11 @@
           </ul>
         </div>
         <div>
-          <h4>Contact</h4>
+          <h4>Appointments</h4>
           <ul class="footer-links">
-            <li><a href="tel:+12368899281">(236) 889-9281</a></li>
-            <li><a href="mailto:ssdr.sumitsharma@gmail.com">ssdr.sumitsharma@gmail.com</a></li>
+            <li><a href="#contact">Our Location</a></li>
             <li><a href="#contact">Opening Hours</a></li>
+            <li><a href="javascript:void(0)" onclick="openBookingModal('General Consultation')">Book Online</a></li>
           </ul>
         </div>
       </div>
@@ -575,11 +575,11 @@
           <div class="form-row">
             <div class="form-group">
               <label for="patientPhone">Phone Number</label>
-              <input type="tel" id="patientPhone" class="form-control" placeholder="(236) 000-0000" required>
+              <input type="tel" id="patientPhone" class="form-control" placeholder="Phone number" required>
             </div>
             <div class="form-group">
               <label for="patientEmail">Email Address</label>
-              <input type="email" id="patientEmail" class="form-control" placeholder="name@example.com" required>
+              <input type="email" id="patientEmail" class="form-control" placeholder="Email address" required>
             </div>
           </div>
           <div class="form-row">
@@ -612,9 +612,6 @@
           <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.95rem; font-size: 0.98rem;">
             Confirm Appointment Request
           </button>
-          <div class="modal-direct-call">
-            Prefer to speak directly? Call Dr. Sharma's clinic at <a href="tel:+12368899281">(236) 889-9281</a>
-          </div>
         </form>
       </div>
     </div>
@@ -627,11 +624,11 @@
     <button class="back-to-top" id="backToTopBtn" type="button" aria-label="Back to top" onclick="scrollToTop()">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
-    <a href="tel:+12368899281" class="quick-call-pill" title="Call DentaClaire Clinic">
+    <button type="button" class="quick-call-pill" title="Book Appointment" onclick="openBookingModal('General Consultation')">
       <span class="pulse-dot"></span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span class="pill-text">(236) 889-9281</span>
-    </a>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span class="pill-text">Book Online</span>
+    </button>
   </div>
 
   <!-- ============================================ -->
@@ -912,98 +909,6 @@
       }
     });
 
-    // --- 11. Gold Cursor Trail ---
-    (function () {
-      const trailCanvas = document.createElement('canvas');
-      trailCanvas.id = 'cursor-trail-canvas';
-      Object.assign(trailCanvas.style, {
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        width: '100%',
-        height: '100%',
-        pointerEvents: 'none',
-        zIndex: '99999',
-      });
-      document.body.appendChild(trailCanvas);
-
-      const tCtx = trailCanvas.getContext('2d');
-      let tW = trailCanvas.width = window.innerWidth;
-      let tH = trailCanvas.height = window.innerHeight;
-
-      window.addEventListener('resize', () => {
-        tW = trailCanvas.width = window.innerWidth;
-        tH = trailCanvas.height = window.innerHeight;
-      });
-
-      // Gold colour stops matching the site palette
-      const GOLD_COLORS = [
-        'rgba(236, 213, 158,',  // --clr-primary-bright
-        'rgba(221, 190, 127,',  // --clr-primary-light
-        'rgba(197, 160, 89,',   // --clr-primary
-        'rgba(232, 205, 148,',  // mid-range warm gold
-        'rgba(255, 235, 180,',  // bright highlight
-      ];
-
-      const trailParticles = [];
-
-      window.addEventListener('mousemove', (e) => {
-        // Spawn 3–5 sparkles per move event for a lush trail
-        const count = Math.floor(Math.random() * 3) + 3;
-        for (let i = 0; i < count; i++) {
-          const spread = 6;
-          trailParticles.push({
-            x: e.clientX + (Math.random() - 0.5) * spread,
-            y: e.clientY + (Math.random() - 0.5) * spread,
-            radius: Math.random() * 3.5 + 1.2,
-            alpha: Math.random() * 0.55 + 0.55,
-            color: GOLD_COLORS[Math.floor(Math.random() * GOLD_COLORS.length)],
-            vx: (Math.random() - 0.5) * 1.2,
-            vy: (Math.random() - 0.5) * 1.2 - 0.6,   // slight upward drift
-            life: 1,
-            decay: Math.random() * 0.022 + 0.018,      // fade speed (~800ms avg)
-          });
-        }
-      });
-
-      function drawTrail() {
-        tCtx.clearRect(0, 0, tW, tH);
-
-        for (let i = trailParticles.length - 1; i >= 0; i--) {
-          const p = trailParticles[i];
-          p.life -= p.decay;
-          if (p.life <= 0) {
-            trailParticles.splice(i, 1);
-            continue;
-          }
-          p.x += p.vx;
-          p.y += p.vy;
-          p.vy += 0.025; // gentle gravity pull
-
-          const currentAlpha = p.alpha * p.life;
-          const currentRadius = p.radius * p.life;
-
-          // Outer glow
-          const grd = tCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, currentRadius * 2.8);
-          grd.addColorStop(0, `${p.color}${currentAlpha.toFixed(3)})`);
-          grd.addColorStop(1, `${p.color}0)`);
-          tCtx.beginPath();
-          tCtx.arc(p.x, p.y, currentRadius * 2.8, 0, Math.PI * 2);
-          tCtx.fillStyle = grd;
-          tCtx.fill();
-
-          // Bright core
-          tCtx.beginPath();
-          tCtx.arc(p.x, p.y, currentRadius, 0, Math.PI * 2);
-          tCtx.fillStyle = `${p.color}${Math.min(1, currentAlpha * 1.4).toFixed(3)})`;
-          tCtx.fill();
-        }
-
-        requestAnimationFrame(drawTrail);
-      }
-      drawTrail();
-    })();
-
     // Form submission handler
     function handleBookingSubmit(e) {
       e.preventDefault();
@@ -1020,7 +925,7 @@
             Thank you for reaching out to DentaClaire. Our team has reserved your preference for <strong>${serviceChosen}</strong> and will contact you promptly to finalize your booking time.
           </p>
           <div style="background: var(--clr-surface-alt); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--clr-border-light); font-size: 0.88rem; color: var(--clr-text);">
-            Need immediate assistance? Call us directly: <a href="tel:+12368899281" style="color: var(--clr-primary-dark); font-weight: 700;">(236) 889-9281</a>
+            Our team will reach out promptly to confirm your appointment time and visit details.
           </div>
           <button type="button" class="btn btn-primary" onclick="closeBookingModal()" style="margin-top: 1.5rem; width: 100%; justify-content: center;">
             Done
